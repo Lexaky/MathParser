@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathParser", "MathParser.csproj", "{6CD72AE4-D061-4B16-BA5A-D2B88EE780BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{339FDAA0-2F5A-4C63-9D20-C0B7B8561740}"
+	ProjectSection(SolutionItems) = preProject
+		ExpressionSentence.cs = ExpressionSentence.cs
+		ExpressionUnit.cs = ExpressionUnit.cs
+		Parser.cs = Parser.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CD72AE4-D061-4B16-BA5A-D2B88EE780BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD72AE4-D061-4B16-BA5A-D2B88EE780BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD72AE4-D061-4B16-BA5A-D2B88EE780BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD72AE4-D061-4B16-BA5A-D2B88EE780BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B344CCBE-40DA-4A0B-8578-3038755D6081}
+	EndGlobalSection
+EndGlobal
