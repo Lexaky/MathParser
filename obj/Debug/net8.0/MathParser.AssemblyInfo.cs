@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MathParser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb76cfd8fd80ca717b91fa887b5e0c861736ad35")]
 [assembly: System.Reflection.AssemblyProductAttribute("MathParser")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MathParser")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
