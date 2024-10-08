@@ -12,7 +12,7 @@ public class Parser
 		get; set;
 	}
 	private ExpressionUnit[] exprUnits;
-	Parser(String data)
+	public Parser(String data)
 	{
 		if (data.Equals(null))
 		{
@@ -25,7 +25,10 @@ public class Parser
 
 		expressionOpAndNestDetermine();
 		if (!expressionDetectErrors())
-			expressionUnitsCreate();
+		{
+			Console.WriteLine("Expression have no mistakes");
+			expressionUnitsCreate(); 
+		}
 		else
 			Console.WriteLine("Expression have mistakes, abort");
 	}
@@ -60,7 +63,7 @@ public class Parser
 					break;
 				case ')':
 					op[i] = 0;
-					nestedLevel[i] = ++nl;
+					nestedLevel[i] = nl--;
 					break;
 				default:
 					op[i] = 0;
@@ -70,14 +73,33 @@ public class Parser
 		}
 	}
 
-	private bool isSubsequenceHaveMistakes(ref int startPos)
+	private bool isSubsequenceHaveMistakes(int startPos, ref short[] arr)
 	{
-		int saveStartPos = startPos;
-		while (saveStartPos == startPos)
+		int i = startPos+1;
+		while (i < arr.Length &&
+			arr[i] == arr[startPos])
 		{
-
+			i++;
 		}
-		return false;
+		i--;
+		if (i == arr.Length-1 && arr[i] == 0)
+		{
+			return false;
+		} else
+		{
+			if (arr[i] > arr[startPos])
+			{ //Sign of nl was changed as increment
+				return isSubsequenceHaveMistakes(i, ref arr);
+			}
+            if (i - startPos >= 5 && (i - startPos) % 2 > 0)
+            {
+				for (int j = startPos; j < i; j++)
+					arr[j]--;
+				return isSubsequenceHaveMistakes(i, ref arr);
+			}
+            else
+                return true;
+		}
 	}
 	private bool expressionDetectErrors()
 	{ // Return false if expression sentence have syntax mistakes
@@ -103,7 +125,13 @@ public class Parser
 		for (int i = 0; i < nestedLevel.Length; i++) 
 		{
 			iSymbolPos = nestedLevel[i];
-			isSubsequenceHaveMistakes(ref i);
+			short []arrOfNestedLevel = new short[nestedLevel.Length];
+			for (int j = 0; j < nestedLevel.Length; j++)
+			{
+				arrOfNestedLevel[j] = nestedLevel[j];
+			}
+			return !isSubsequenceHaveMistakes(0, ref arrOfNestedLevel);
+			
 		}
 
 		return true;
@@ -111,7 +139,7 @@ public class Parser
 	private void expressionUnitsCreate()
 	{ // Init of ExpressionUnits array with true order of execute operators
 		//Count of operator == count of units
-		exprUnits = new ExpressionUnit[op.Count(x => x != 0)];
+		//exprUnits = new ExpressionUnit[op.Count(x => x != 0)];
 		
 	}
 
